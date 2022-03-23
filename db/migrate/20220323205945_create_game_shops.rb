@@ -4,6 +4,8 @@ class CreateGameShops < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :overstocked
       t.integer :potential_revenue
+
+      t.timestamps
     end
   end
 end
