@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_23_210700) do
+ActiveRecord::Schema.define(version: 2022_03_23_215335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_03_23_210700) do
   create_table "game_shops", force: :cascade do |t|
     t.string "name"
     t.boolean "overstocked"
-    t.integer "potential_revenue"
+    t.integer "stock_limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
