@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/game_shops', to: 'game_shops#index'
   get '/game_shops/:id', to: 'game_shops#show'
   get '/video_games', to: 'video_games#index'
+  get '/video_games/:id', to: 'video_games#show'
 end

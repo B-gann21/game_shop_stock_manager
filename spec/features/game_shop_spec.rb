@@ -28,7 +28,7 @@ RSpec.describe 'GameShop', type: :feature do
       expect(page).to have_content("Updated at: #{shop1.updated_at}")
 
       expect(page).to_not have_content("ID: #{shop2.id}")
-      expect(page).to_not have_content("Name: #{shop2.name}")
+      expect(page).to_not have_content(shop2.name)
       expect(page).to_not have_content("Stock limit: #{shop2.stock_limit}")
     end
   end
