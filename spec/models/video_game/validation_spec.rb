@@ -5,6 +5,8 @@ RSpec.describe VideoGame, type: :model do
     it { should validate_presence_of :name }
     it { should validate_presence_of :rating }
     it { should validate_presence_of :price }
-    it { should validate_presence_of :multiplayer }
+    it { should allow_value(true).for :multiplayer }
+    it { should allow_value(false).for :multiplayer }
+    it { should_not allow_value(nil).for :multiplayer }
   end
 end

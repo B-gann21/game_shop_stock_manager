@@ -6,8 +6,8 @@ RSpec.describe 'ShopGames#index', type: :feature do
     # When I visit '/parents/:parent_id/child_table_name'
     # Then I see each Child that is associated with that Parent with each Child's attributes:
     it 'displays all VideoGames that have a matching shop_id' do
-      shop1 = GameShop.create!(name: "Fred's Games", overstocked: false, stock_limit: 3)
-      shop2 = GameShop.create!(name: "Gameville", overstocked: false, stock_limit: 5)
+      shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
+      shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)
       game1 = shop1.video_games.create!(name: "DOOM 2016", rating: "M", price: 70, multiplayer: false)
       game2 = shop1.video_games.create!(name: "FIFA 2020", rating: "E", price: 55, multiplayer: true)
       game3 = shop2.video_games.create!(name: "Elden Ring", rating: "M", price: 65, multiplayer: true)
