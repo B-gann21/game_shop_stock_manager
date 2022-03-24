@@ -1,4 +1,4 @@
-does_repairsrequire 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe 'GameShops#index', type: :feature do
 

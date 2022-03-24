@@ -10,7 +10,7 @@ RSpec.describe 'GameShops#show', type: :feature do
 
       expect(page).to have_content("ID: #{shop1.id}")
       expect(page).to have_content(shop1.name)
-      expect(page).to have_content("Does repairs: #{shop1.overstocked}")
+      expect(page).to have_content("Does repairs: #{shop1.does_repairs}")
       expect(page).to have_content("Stock limit: #{shop1.stock_limit}")
       expect(page).to have_content("Created at: #{shop1.created_at}")
       expect(page).to have_content("Updated at: #{shop1.updated_at}")
