@@ -33,8 +33,20 @@ RSpec.describe 'GameShop', type: :feature do
   end
 
   context '/game_shops/:id/video_games' do
+    before :each do
+      @game1 = @shop1.video_games.create!(name: "DOOM 2016", rating: "M", price: 70, multiplayer: false)
+      @game2 = @shop1.video_games.create!(name: "FIFA 2020", rating: "E", price: 55, multiplayer: true)
+      @game3 = @shop2.video_games.create!(name: "Elden Ring", rating: "M", price: 65, multiplayer: true)
+    end
     # As a visitor
     # When I visit '/parents/:parent_id/child_table_name'
     # Then I see each Child that is associated with that Parent with each Child's attributes:
+    it 'displays all VideoGames that have a matching shop_id' do
+      visit "/game_shops/#{@shop1.id}/video_games"
+
+      expect(page).to have_content(@game1.name)
+      expect(page).to have_content(@game2.name)
+      expect(page).to_not have_content(@game3.name)
+    end
   end
 end
