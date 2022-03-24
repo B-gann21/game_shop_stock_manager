@@ -1,5 +1,11 @@
 <h1>All Video Games</h1>
 
 <% @video_games.each do |game| %>
-  <h2><%= game.name %></h2>
+  <h1><%= game.name %></h1>
+  <p>ID: <%= game.id %></p>
+  <p>Rating: <%= game.rating %></p>
+  <p>Price: <%= game.price %></p>
+  <p>Multiplayer: <%= game.multiplayer %></p>
+  <p>Created at: <%= game.created_at %></p>
+  <p>Updated at: <%= game.updated_at %></p>
 <% end %>

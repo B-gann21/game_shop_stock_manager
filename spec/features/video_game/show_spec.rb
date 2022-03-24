@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'VideoGames#show', type: :feature do
   context '/video_games/:id' do
     it 'displays the matching VideoGame and attributes' do
-      shop1 = GameShop.create!(name: "Fred's Games", overstocked: false, stock_limit: 3)
+      shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
       game1 = shop1.video_games.create!(name: "DOOM 2016", rating: "M", price: 70, multiplayer: false)
       game2 = shop1.video_games.create!(name: "FIFA 2020", rating: "E", price: 55, multiplayer: true)
       game3 = shop1.video_games.create!(name: "Elden Ring", rating: "M", price: 65, multiplayer: false)
