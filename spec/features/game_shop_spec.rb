@@ -44,9 +44,25 @@ RSpec.describe 'GameShop', type: :feature do
     it 'displays all VideoGames that have a matching shop_id' do
       visit "/game_shops/#{@shop1.id}/video_games"
 
+      expect(page).to have_content("ID: #{@game1.id}")
       expect(page).to have_content(@game1.name)
+      expect(page).to have_content("Rating: #{@game1.rating}")
+      expect(page).to have_content("Price: #{@game1.price}")
+      expect(page).to have_content("Multiplayer: #{@game1.multiplayer}")
+      expect(page).to have_content("Created at: #{@game1.created_at}")
+      expect(page).to have_content("Updated at: #{@game1.updated_at}")
+
+      expect(page).to have_content("ID: #{@game2.id}")
       expect(page).to have_content(@game2.name)
+      expect(page).to have_content("Rating: #{@game2.rating}")
+      expect(page).to have_content("Price: #{@game2.price}")
+      expect(page).to have_content("Multiplayer: #{@game2.multiplayer}")
+      expect(page).to have_content("Created at: #{@game2.created_at}")
+      expect(page).to have_content("Updated at: #{@game2.updated_at}")
+
+      expect(page).to_not have_content("ID: #{@game3.id}")
       expect(page).to_not have_content(@game3.name)
+      expect(page).to_not have_content("Price: #{@game3.price}")
     end
   end
 end
