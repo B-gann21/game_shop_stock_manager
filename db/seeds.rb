@@ -1,3 +1,6 @@
+VideoGame.destroy_all
+GameShop.destroy_all
+
 gamestop = GameShop.create(name: "GameStop", does_repairs: false, stock_limit: 5)
 level7games = GameShop.create(name: "Level 7 Games", does_repairs: true, stock_limit: 4)
 gamezone = GameShop.create(name: "GAME ZONE", does_repairs: false, stock_limit: 6)
