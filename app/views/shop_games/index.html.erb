@@ -1,12 +1,10 @@
 <h1>Games from shop # <%= params[:id] %></h1>
 
 <% @video_games.each do |game| %>
-  <% if game.game_shop_id == params[:id].to_i %>
-    <h2><%= game.name %> -- ID: <%= game.id %></h2>
-    <p>Rating: <%= game.rating %></p>
-    <p>Price: <%= game.price %></p>
-    <p>Multiplayer: <%= game.multiplayer %></p>
-    <p>Created at: <%= game.created_at %></p>
-    <p>Updated at: <%= game.updated_at %>
-  <% end %>
+  <h2><%= game.name %> -- ID: <%= game.id %></h2>
+  <p>Rating: <%= game.rating %></p>
+  <p>Price: <%= game.price %></p>
+  <p>Multiplayer: <%= game.multiplayer %></p>
+  <p>Created at: <%= game.created_at %></p>
+  <p>Updated at: <%= game.updated_at %>
 <% end %>
