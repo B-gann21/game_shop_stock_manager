@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'GameShops#show', type: :feature do
-  context '/game_shops/:id' do
+RSpec.describe 'GameShops', type: :feature do
+  context '#show' do
     it 'displays the matching GameShop and attibutes' do
       shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
       shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)

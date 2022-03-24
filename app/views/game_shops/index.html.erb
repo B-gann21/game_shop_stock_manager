@@ -1,5 +1,5 @@
 <h1>All Game Shops</h1>
 
 <% @game_shops.each do |shop| %>
-  <p><%= shop.name %></p>
+  <p><%= shop.name %> -- Created: <%= shop.created_at %></p>
 <% end %>

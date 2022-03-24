@@ -1,10 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'ShopGames#index', type: :feature do
-  context '/game_shops/:id/video_games' do
-    # As a visitor
-    # When I visit '/parents/:parent_id/child_table_name'
-    # Then I see each Child that is associated with that Parent with each Child's attributes:
+RSpec.describe 'ShopGames', type: :feature do
+  context '#index' do
     it 'displays all VideoGames that have a matching shop_id' do
       shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
       shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)

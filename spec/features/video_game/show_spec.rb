@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'VideoGames#show', type: :feature do
-  context '/video_games/:id' do
+RSpec.describe 'VideoGames', type: :feature do
+  context '#show' do
     it 'displays the matching VideoGame and attributes' do
       shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
       game1 = shop1.video_games.create!(name: "DOOM 2016", rating: "M", price: 70, multiplayer: false)
