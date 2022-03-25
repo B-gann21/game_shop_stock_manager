@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe VideoGame, type: :model do
+RSpec.describe VideoGame do
   describe "validation" do
     it { should validate_presence_of :name }
     it { should validate_presence_of :rating }
