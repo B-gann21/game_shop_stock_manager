@@ -10,6 +10,16 @@ RSpec.describe 'GameShops', type: :feature do
   end
 
   context '#show' do
+    it 'displays a link to the video_game_index' do
+      expect(page).to have_link('Video Game Index')
+
+      click_link('Video Game Index')
+
+      expect(page).to have_content(@game1.name)
+      expect(page).to have_content(@game2.name)
+      expect(page).to have_content(@game3.name)
+    end
+    
     it 'displays the matching GameShop and attibutes' do
       visit "/game_shops/#{@shop1.id}"
 
