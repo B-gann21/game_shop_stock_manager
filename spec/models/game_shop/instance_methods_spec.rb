@@ -16,5 +16,11 @@ RSpec.describe GameShop do
         expect(@shop2.total_games_in_stock).to eq(1)
       end
     end
+
+    context '#order_by_created_at' do
+      it 'orders all entries by most recently created' do
+        expect(GameShop.order_by_created_at).to eq([@shop2, @shop1])
+      end
+    end
   end
 end
