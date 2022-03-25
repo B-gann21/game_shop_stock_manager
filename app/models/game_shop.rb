@@ -6,4 +6,8 @@ class GameShop < ApplicationRecord
   def total_games_in_stock
     self.video_games.count
   end
+
+  def self.order_by_created_at
+    order("created_at desc")
+  end
 end

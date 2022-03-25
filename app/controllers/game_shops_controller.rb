@@ -1,6 +1,6 @@
 class GameShopsController < ApplicationController
   def index
-    @game_shops = GameShop.all.order('created_at')
+    @game_shops = GameShop.order_by_created_at
   end
 
   def show
