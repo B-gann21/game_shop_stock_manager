@@ -7,9 +7,11 @@ RSpec.describe 'GameShops', type: :feature do
     @game1 = @shop1.video_games.create!(name: "DOOM 2016", rating: "M", price: 70, multiplayer: false)
     @game2 = @shop1.video_games.create!(name: "FIFA 2020", rating: "E", price: 55, multiplayer: true)
     @game3 = @shop2.video_games.create!(name: "Elden Ring", rating: "M", price: 65, multiplayer: true)
+
+    visit "/game_shops/#{@shop1.id}"
   end
 
-  context '#show' do
+  context 'links' do
     it 'displays a link to the video_game_index' do
       expect(page).to have_link('Video Game Index')
 
@@ -19,9 +21,14 @@ RSpec.describe 'GameShops', type: :feature do
       expect(page).to have_content(@game2.name)
       expect(page).to have_content(@game3.name)
     end
-    
+
+    it 'should display links at the top of the page' do
+      expect(page.text.index("Video Game Index")).to eq(0)
+    end
+  end
+
+  context '#show' do
     it 'displays the matching GameShop and attibutes' do
-      visit "/game_shops/#{@shop1.id}"
 
       expect(page).to have_content("ID: #{@shop1.id}")
       expect(page).to have_content(@shop1.name)
