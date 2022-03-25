@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'GameShops', type: :feature do
+RSpec.describe 'GameShops' do
   before :each do
     @shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
     @shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)
@@ -26,6 +26,7 @@ RSpec.describe 'GameShops', type: :feature do
       expect(page).to_not have_content(@shop2.name)
       expect(page).to_not have_content("Stock limit: #{@shop2.stock_limit}")
     end
+
 
   end
 end

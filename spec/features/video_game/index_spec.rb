@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'VideoGames', type: :feature do
+RSpec.describe 'VideoGames' do
   before :each do
     @shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
     @shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)

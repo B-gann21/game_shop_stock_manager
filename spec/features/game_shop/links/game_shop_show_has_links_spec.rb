@@ -11,7 +11,7 @@ RSpec.describe "GameShops#show" do
     visit "/game_shops/#{@shop1.id}"
   end
 
-  context 'links' do
+  context 'links for index pages' do
     it 'displays a link to the VideoGame index' do
       expect(page).to have_link('Video Game Index')
 
@@ -31,7 +31,17 @@ RSpec.describe "GameShops#show" do
       expect(page).to have_content(@shop2.name)
     end
 
-    it 'should display links at the top of the page' do
+    it 'displays a link for all related games' do
+      expect(page).to have_link("Games sold by #{@shop1.name}")
+
+      click_link("Games sold by #{@shop1.name}")
+
+      expect(page).to have_content(@game1.name)
+      expect(page).to have_content(@game2.name)
+      expect(page).to_not have_content(@game3.name)
+    end
+
+    it 'should display index links at the top of the page' do
       expect("Video Game Index").to appear_before("Game Shop Index")
       expect("Video Game Index").to appear_before(@shop1.name)
 
