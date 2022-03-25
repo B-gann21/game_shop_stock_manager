@@ -7,18 +7,20 @@ RSpec.describe 'GameShops', type: :feature do
       @shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
       @shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)
       @shop3 = GameShop.create!(name: "GoodGames", does_repairs: false, stock_limit: 5)
+
+      visit '/game_shops'
+    end
+
+    it 'displays a link to the video_game_index' do
+      expect(page).to have_link('Video Game Index')
     end
 
     it 'displays all names' do
-      visit '/game_shops'
-
       expect(page).to have_content(@shop1.name)
       expect(page).to have_content(@shop2.name)
     end
 
     it 'displays in order of created_at attribute' do
-      visit '/game_shops'
-
       expect("#{@shop1.name}").to appear_before("#{@shop2.name}")
       expect("#{@shop1.name}").to appear_before("#{@shop3.name}")
 
@@ -30,8 +32,6 @@ RSpec.describe 'GameShops', type: :feature do
     end
 
     it 'displays created_at attributes next to the names' do
-      visit '/game_shops'
-
       expect(page).to have_content("#{@shop1.name} -- Created: #{@shop1.created_at}")
       expect(page).to have_content("#{@shop2.name} -- Created: #{@shop2.created_at}")
       expect(page).to have_content("#{@shop3.name} -- Created: #{@shop3.created_at}")
