@@ -35,14 +35,14 @@ RSpec.describe 'GameShops', type: :feature do
     end
 
     it 'displays in order of created_at attribute' do
-      expect("#{@shop1.name}").to appear_before("#{@shop2.name}")
-      expect("#{@shop1.name}").to appear_before("#{@shop3.name}")
+      expect("#{@shop1.name}").to_not appear_before("#{@shop2.name}")
+      expect("#{@shop1.name}").to_not appear_before("#{@shop3.name}")
 
-      expect("#{@shop2.name}").to_not appear_before("#{@shop1.name}")
-      expect("#{@shop2.name}").to appear_before("#{@shop3.name}")
+      expect("#{@shop2.name}").to appear_before("#{@shop1.name}")
+      expect("#{@shop2.name}").to_not appear_before("#{@shop3.name}")
 
-      expect("#{@shop3.name}").to_not appear_before("#{@shop1.name}")
-      expect("#{@shop3.name}").to_not appear_before("#{@shop2.name}")
+      expect("#{@shop3.name}").to appear_before("#{@shop1.name}")
+      expect("#{@shop3.name}").to appear_before("#{@shop2.name}")
     end
 
     it 'displays created_at attributes next to the names' do
