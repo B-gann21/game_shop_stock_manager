@@ -23,18 +23,19 @@ RSpec.describe 'ShopGames', type: :feature do
     end
 
     it 'displays a link to the GameShop index' do
-      expect (page).to have_link('Game Shop Index')
+      expect(page).to have_link('Game Shop Index')
 
       click_link('Game Shop Index')
 
       expect(page).to have_content(@shop1.name)
       expect(page).to have_content(@shop2.name)
-      expect(page).to have_content(@shop3.name)
     end
 
     it 'should display links at the top of the page' do
-      expect(page.text.index("Video Game Index")).to eq(0)
-      expect(page.text.index("Game Shop Index")).to eq(1)
+      expect("Video Game Index").to appear_before("Game Shop Index")
+      expect("Video Game Index").to appear_before("Games from shop #")
+
+      expect("Game Shop Index").to appear_before("Games from shop #")
     end
   end
 

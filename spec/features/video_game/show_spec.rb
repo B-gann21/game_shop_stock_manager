@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe 'VideoGames', type: :feature do
   before :each do
     @shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
+    @shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)
+    @shop3 = GameShop.create!(name: "GoodGames", does_repairs: false, stock_limit: 5)
     @game1 = @shop1.video_games.create!(name: "DOOM 2016", rating: "M", price: 70, multiplayer: false)
     @game2 = @shop1.video_games.create!(name: "FIFA 2020", rating: "E", price: 55, multiplayer: true)
     @game3 = @shop1.video_games.create!(name: "Elden Ring", rating: "M", price: 65, multiplayer: true)
@@ -22,7 +24,7 @@ RSpec.describe 'VideoGames', type: :feature do
     end
 
     it 'displays a link to the GameShop index' do
-      expect (page).to have_link('Game Shop Index')
+      expect(page).to have_link('Game Shop Index')
 
       click_link('Game Shop Index')
 
@@ -32,8 +34,10 @@ RSpec.describe 'VideoGames', type: :feature do
     end
 
     it 'should display links at the top of the page' do
-      expect(page.text.index("Video Game Index")).to eq(0)
-      expect(page.text.index("Game Shop Index")).to eq(1)
+      expect("Video Game Index").to appear_before("Game Shop Index")
+      expect("Video Game Index").to appear_before("#{@game1.name}")
+
+      expect("Game Shop Index").to appear_before("#{@game1.name}")
     end
   end
 
