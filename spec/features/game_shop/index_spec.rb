@@ -18,19 +18,15 @@ RSpec.describe 'GameShops', type: :feature do
 
     it 'displays in order of created_at attribute' do
       visit '/game_shops'
-      content = page.text
-      shop1_position = content.index("#{@shop1.name}")
-      shop2_position = content.index("#{@shop2.name}")
-      shop3_position = content.index("#{@shop3.name}")
 
-      expect(shop1_position).to be < shop2_position
-      expect(shop1_position).to be < shop3_position
+      expect("#{@shop1.name}").to appear_before("#{@shop2.name}")
+      expect("#{@shop1.name}").to appear_before("#{@shop3.name}")
 
-      expect(shop2_position).to be < shop3_position
-      expect(shop2_position).to be > shop1_position
+      expect("#{@shop2.name}").to_not appear_before("#{@shop1.name}")
+      expect("#{@shop2.name}").to appear_before("#{@shop3.name}")
 
-      expect(shop3_position).to be > shop1_position
-      expect(shop3_position).to be > shop2_position
+      expect("#{@shop3.name}").to_not appear_before("#{@shop1.name}")
+      expect("#{@shop3.name}").to_not appear_before("#{@shop2.name}")
     end
 
     it 'displays created_at attributes next to the names' do
