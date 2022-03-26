@@ -4,7 +4,9 @@
 <h1>All Video Games</h1>
 
 <% @video_games.each do |game| %>
-  <h1><a href="/video_games/<%= game.id %>"><%= game.name %></a></h1>
+  <h1>
+    <a href="/video_games/<%= game.id %>"><%= game.name %></a>
+  </h1>
   <p>ID: <%= game.id %></p>
   <p>Rating: <%= game.rating %></p>
   <p>Price: <%= game.price %></p>
