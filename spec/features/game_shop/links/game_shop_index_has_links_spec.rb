@@ -51,21 +51,18 @@ RSpec.describe 'GameShops#index' do
       click_link("Fred's Games")
 
       expect(current_path).to eq("/game_shops/#{@shop1.id}")
-      expect(page).to have_content("Fred's Games")
     end
 
     it "clicking on GameVille takes you to it's show page" do
       click_link("Gameville")
 
       expect(current_path).to eq("/game_shops/#{@shop2.id}")
-      expect(page).to have_content("Gameville")
     end
 
     it "clicking on GoodGames takes you to it's show page" do
       click_link("GoodGames")
 
       expect(current_path).to eq("/game_shops/#{@shop3.id}")
-      expect(page).to have_content("GoodGames")
     end
   end
 end
