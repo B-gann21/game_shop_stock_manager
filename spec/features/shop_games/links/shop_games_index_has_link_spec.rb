@@ -38,4 +38,25 @@ RSpec.describe 'ShopGames#index' do
       expect("Game Shop Index").to appear_before("Games from shop #")
     end
   end
+
+  context 'show links' do
+    it "has each game's name as a link" do
+      expect(page).to have_link("DOOM 2016")
+      expect(page).to have_link("FIFA 2020")
+    end
+
+    it "clicking DOOM 2016 brings you to it's show page" do
+      click_link('DOOM 2016')
+
+      expect(current_path).to eq("/video_games/#{@game1.id}")
+      expect(page).to have_content("DOOM 2016")
+    end
+
+    it "clicking on FIFA 2020 takes you to it's show page" do
+      click_link('FIFA 2020')
+
+      expect(current_path).to eq("/video_games/#{@game2.id}")
+      expect(page).to have_content("FIFA 2020")
+    end
+  end
 end

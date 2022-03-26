@@ -26,7 +26,5 @@ RSpec.describe 'GameShops' do
       expect(page).to_not have_content(@shop2.name)
       expect(page).to_not have_content("Stock limit: #{@shop2.stock_limit}")
     end
-
-
   end
 end
