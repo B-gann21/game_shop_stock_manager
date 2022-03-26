@@ -14,29 +14,43 @@ RSpec.describe 'VideoGames' do
 
   context '#index' do
     it 'displays all VideoGame names' do
-      expect(page).to have_content("ID: #{@game1.id}")
       expect(page).to have_content(@game1.name)
-      expect(page).to have_content("Rating: #{@game1.rating}")
-      expect(page).to have_content("Price: #{@game1.price}")
-      expect(page).to have_content("Multiplayer: #{@game1.multiplayer}")
-      expect(page).to have_content("Created at: #{@game1.created_at}")
-      expect(page).to have_content("Updated at: #{@game1.updated_at}")
 
-      expect(page).to have_content("ID: #{@game2.id}")
       expect(page).to have_content(@game2.name)
-      expect(page).to have_content("Rating: #{@game2.rating}")
-      expect(page).to have_content("Price: #{@game2.price}")
-      expect(page).to have_content("Multiplayer: #{@game2.multiplayer}")
-      expect(page).to have_content("Created at: #{@game2.created_at}")
-      expect(page).to have_content("Updated at: #{@game2.updated_at}")
 
-      expect(page).to have_content("ID: #{@game3.id}")
       expect(page).to have_content(@game3.name)
-      expect(page).to have_content("Rating: #{@game3.rating}")
-      expect(page).to have_content("Price: #{@game3.price}")
-      expect(page).to have_content("Multiplayer: #{@game3.multiplayer}")
-      expect(page).to have_content("Created at: #{@game3.created_at}")
-      expect(page).to have_content("Updated at: #{@game3.updated_at}")
+    end
+
+    it 'displays attributes next to their VideoGame' do
+      within "#video-game-#{@game1.id}" do
+        expect(page).to have_content(@game1.name)
+        expect(page).to have_content(@game1.id)
+        expect(page).to have_content(@game1.rating)
+        expect(page).to have_content(@game1.price)
+        expect(page).to have_content(@game1.multiplayer)
+        expect(page).to have_content(@game1.created_at)
+        expect(page).to have_content(@game1.updated_at)
+      end
+
+      within "#video-game-#{@game2.id}" do
+        expect(page).to have_content(@game2.name)
+        expect(page).to have_content(@game2.id)
+        expect(page).to have_content(@game2.rating)
+        expect(page).to have_content(@game2.price)
+        expect(page).to have_content(@game2.multiplayer)
+        expect(page).to have_content(@game2.created_at)
+        expect(page).to have_content(@game2.updated_at)
+      end
+
+      within "#video-game-#{@game3.id}" do
+        expect(page).to have_content(@game3.name)
+        expect(page).to have_content(@game3.id)
+        expect(page).to have_content(@game3.rating)
+        expect(page).to have_content(@game3.price)
+        expect(page).to have_content(@game3.multiplayer)
+        expect(page).to have_content(@game3.created_at)
+        expect(page).to have_content(@game3.updated_at)
+      end
     end
   end
 end
