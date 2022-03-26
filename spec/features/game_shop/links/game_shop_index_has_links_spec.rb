@@ -11,7 +11,7 @@ RSpec.describe 'GameShops#index' do
     visit '/game_shops/'
   end
 
-  context 'links' do
+  context 'index links' do
     it 'displays a link to the VideoGame index' do
       expect(page).to have_link('Video Game Index')
 
