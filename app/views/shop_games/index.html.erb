@@ -1,13 +1,18 @@
 <a href="/video_games/">Video Game Index</a>
 <a href="/game_shops/">Game Shop Index</a>
 
-<h1>Games from shop # <%= params[:id] %></h1>
+<h1 class="game-shop-header">Games from shop # <%= params[:id] %></h1>
 
 <% @video_games.each do |game| %>
-  <h2><a href="/video_games/<%= game.id %>"><%= game.name %></a> -- ID: <%= game.id %></h2>
-  <p>Rating: <%= game.rating %></p>
-  <p>Price: <%= game.price %></p>
-  <p>Multiplayer: <%= game.multiplayer %></p>
-  <p>Created at: <%= game.created_at %></p>
-  <p>Updated at: <%= game.updated_at %></p>
+  <section id="video-game-<%= game.id %>">
+    <h2>
+      <a href="/video_games/<%= game.id %>"><%= game.name %></a>
+    </h2>
+    <p>ID: <%= game.id %>
+    <p>Rating: <%= game.rating %></p>
+    <p>Price: <%= game.price %></p>
+    <p>Multiplayer: <%= game.multiplayer %></p>
+    <p>Created at: <%= game.created_at %></p>
+    <p>Updated at: <%= game.updated_at %></p>
+  </section><br/>
 <% end %>

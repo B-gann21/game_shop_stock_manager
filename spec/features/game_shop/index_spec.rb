@@ -30,9 +30,20 @@ RSpec.describe 'GameShops' do
     end
 
     it 'displays created_at attributes next to the names' do
-      expect(page).to have_content("#{@shop1.name} -- Created: #{@shop1.created_at}")
-      expect(page).to have_content("#{@shop2.name} -- Created: #{@shop2.created_at}")
-      expect(page).to have_content("#{@shop3.name} -- Created: #{@shop3.created_at}")
+      within "#game-shop-#{@shop1.id}" do
+        expect(page).to have_content(@shop1.name)
+        expect(page).to have_content("Created: #{@shop1.created_at}")
+      end
+
+      within "#game-shop-#{@shop2.id}" do
+        expect(page).to have_content(@shop2.name)
+        expect(page).to have_content("Created: #{@shop2.created_at}")
+      end
+
+      within "#game-shop-#{@shop3.id}" do
+        expect(page).to have_content(@shop3.name)
+        expect(page).to have_content("Created: #{@shop3.created_at}")
+      end
     end
   end
 end
