@@ -40,16 +40,6 @@ RSpec.describe 'ShopGames' do
         expect(page).to have_content(@game2.created_at)
         expect(page).to have_content(@game2.updated_at)
       end
-
-      within "#video-game-#{@game3.id}" do
-        expect(page).to have_content(@game3.name)
-        expect(page).to have_content(@game3.id)
-        expect(page).to have_content(@game3.rating)
-        expect(page).to have_content(@game3.price)
-        expect(page).to have_content(@game3.multiplayer)
-        expect(page).to have_content(@game3.created_at)
-        expect(page).to have_content(@game3.updated_at)
-      end
     end
   end
 end
