@@ -3,7 +3,7 @@
 <h1 class="game-shop-header">All Game Shops</h1><br/>
 
   <% @game_shops.each do |shop| %>
-    <section class ="game-shop" id="game-shop-<%= shop.id %>">
+    <section id="game-shop-<%= shop.id %>">
       <p>
         <a href="/game_shops/<%= shop.id %>"><%= shop.name %></a>
       </p>

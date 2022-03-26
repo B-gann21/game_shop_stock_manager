@@ -1,5 +1,5 @@
 /* styling for GameShops */
-.game-shop {
+section {
   border: 2px dashed black;
   margin: auto;
   background-color: rgb(160, 160, 160);
