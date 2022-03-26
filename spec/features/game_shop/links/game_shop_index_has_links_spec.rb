@@ -43,7 +43,7 @@ RSpec.describe 'GameShops#index' do
   context 'show links' do
     it 'has the name of each GameShop as a link to its show page' do
       expect(page).to have_link("Fred's Games")
-      expect(page).to have_link("GameVille")
+      expect(page).to have_link("Gameville")
       expect(page).to have_link("GoodGames")
     end
 
@@ -55,16 +55,16 @@ RSpec.describe 'GameShops#index' do
     end
 
     it "clicking on GameVille takes you to it's show page" do
-      click_link("GameVille")
+      click_link("Gameville")
 
       expect(current_path).to eq("/game_shops/#{@shop2.id}")
-      expect(page).to have_content("GameVille")
+      expect(page).to have_content("Gameville")
     end
 
     it "clicking on GoodGames takes you to it's show page" do
       click_link("GoodGames")
 
-      expect(current_path).to be("/game_shops/#{@shop2.id}")
+      expect(current_path).to eq("/game_shops/#{@shop3.id}")
       expect(page).to have_content("GoodGames")
     end
   end

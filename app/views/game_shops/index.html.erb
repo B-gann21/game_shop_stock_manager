@@ -3,5 +3,5 @@
 <h1>All Game Shops</h1>
 
 <% @game_shops.each do |shop| %>
-  <p><%= shop.name %> -- Created: <%= shop.created_at %></p>
+  <p><a href="/game_shops/<%= shop.id %>"</a><%= shop.name %> -- Created: <%= shop.created_at %></p>
 <% end %>
