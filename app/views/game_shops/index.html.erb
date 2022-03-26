@@ -1,12 +1,12 @@
 <a href="/video_games/">Video Game Index</a>
 <a href="/game_shops/">Game Shop Index</a>
-<h1>All Game Shops</h1>
+<h1 class="game-shop-header">All Game Shops</h1><br/>
 
   <% @game_shops.each do |shop| %>
     <section class ="game-shop" id="game-shop-<%= shop.id %>">
       <p>
         <a href="/game_shops/<%= shop.id %>"><%= shop.name %></a>
-         -- Created: <%= shop.created_at %>
       </p>
-    </section>
+      <p>Created: <%= shop.created_at %></p>
+    </section><br/>
   <% end %>

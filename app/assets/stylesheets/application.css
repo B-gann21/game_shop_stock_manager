@@ -1,3 +1,14 @@
 .game-shop {
-  background-color: lightblue;
+  border: 2px dashed black;
+  margin: auto;
+  background-color: rgb(160, 160, 160);
+  width: 20%;
+  text-align: center;
+  padding: 10px;
+}
+
+.game-shop-header {
+  width: 50%;
+  margin: auto;
+  text-align: center
 }
