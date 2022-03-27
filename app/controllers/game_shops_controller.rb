@@ -9,4 +9,14 @@ class GameShopsController < ApplicationController
 
   def new
   end
+
+  def create
+    game_shop = GameShop.create(game_shop_params)
+    redirect_to '/game_shops'
+  end
+
+private
+  def game_shop_params
+    params.permit :name, :does_repairs, :stock_limit
+  end
 end

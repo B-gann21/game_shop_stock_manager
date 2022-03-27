@@ -39,8 +39,8 @@ RSpec.describe 'GameShop#new' do
       click_link("New Game Shop")
 
       fill_in('Name', with: 'The Spot')
-      fill_in('Does_repairs', with: 'true')
-      fill_in('Stock_limit', with: '7')
+      fill_in('Does repairs', with: 'true')
+      fill_in('Stock limit', with: '7')
 
       click_button "Create Game Shop"
 
