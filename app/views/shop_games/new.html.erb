@@ -1,0 +1,11 @@
+<%= form_with url: "/game_shops/#{@game_shop.id}/video_games", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :rating %>
+  <%= form.text_field :rating %>
+  <%= form.label :price %>
+  <%= form.text_field :price %>
+  <%= form.label :multiplayer %>
+  <%= form.text_field :multiplayer %>
+  <%= form.submit "Add to #{@game_shop.name} stock" %>
+<% end %>
