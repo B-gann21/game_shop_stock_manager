@@ -60,7 +60,7 @@ RSpec.describe 'GameShops' do
 
     it 'should display index links at the bottom of the page' do
       expect("Video Game Index").to_not appear_before(@shop1.name)
-
+      expect("Games sold by #{@shop1.name}").to_not appear_before(@shop1.name)
       expect("Game Shop Index").to_not appear_before(@shop1.name)
     end
   end
