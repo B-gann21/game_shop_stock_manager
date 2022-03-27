@@ -23,7 +23,7 @@ RSpec.describe "GameShop#edit" do
       click_link "Edit Fred's Games"
 
       fill_in :name, with: "Fred's Game Shop"
-      fill_in :does_repairs, with: "true"
+      check :does_repairs
       fill_in :stock_limit, with: 9
       click_button "Update Game Shop"
       expect(current_path).to eq("/game_shops/#{@shop1.id}")
