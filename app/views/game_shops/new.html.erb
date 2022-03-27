@@ -1,9 +1,9 @@
 <%= form_with url: '/game_shops', method: :post, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name %><br>
   <%= form.label :does_repairs %>
-  <%= form.text_field :does_repairs %>
+  <%= form.text_field :does_repairs %><br>
   <%= form.label :stock_limit %>
-  <%= form.text_field :stock_limit %>
+  <%= form.text_field :stock_limit %><br>
   <%= form.submit "Create Game Shop" %>
 <% end %>
