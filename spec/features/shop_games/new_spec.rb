@@ -26,9 +26,24 @@ RSpec.describe "ShopGames#new" do
     end
 
     it 'Add to stock should take you to the new Video Game page' do
-      click_link("Add to stock")
+      click_link "Add to stock"
 
       expect(current_path).to eq("/game_shops/#{@shop1.id}/video_games/new")
+    end
+  end
+
+  context 'creating a new VideoGame' do
+    it 'submitting the form should show the new VideoGame' do
+      click_link "Add to stock"
+
+      fill_in :name, with: "Monster Hunter: Rise"
+      fill_in :rating, with: "T"
+      fill_in :price, with: "60"
+      fill_in :multiplayer, with: "true"
+      click_button "Add to #{@shop1.name} stock"
+
+      expect(current_path).to eq("/game_shops/#{@shop1.id}/video_games")
+      expect(page).to have_content("Monster Hunter: Rise")
     end
   end
 end
