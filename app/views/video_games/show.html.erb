@@ -7,7 +7,8 @@
   <p>Multiplayer: <%= @video_game.multiplayer %></p>
   <p>Created at: <%= @video_game.created_at %></p>
   <p>Updated at: <%= @video_game.updated_at %></p>
+  <%= link_to "Edit #{@video_game.name}", "/video_games/#{@video_game.id}/edit" %>
 </section><br/>
 
 <a href="/video_games/">Video Game Index</a><br>
-<a href="/game_shops/">Game Shop Index</a>
+<a href="/game_shops/">Game Shop Index</a><br>

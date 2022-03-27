@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   get '/game_shops/:id', to: 'game_shops#show'
   patch '/game_shops/:id', to: 'game_shops#update'
   get 'game_shops/:id/edit', to: 'game_shops#edit'
+
   get '/game_shops/:id/video_games', to: 'shop_games#index'
   post 'game_shops/:id/video_games', to: 'shop_games#create'
   get 'game_shops/:id/video_games/new', to: 'shop_games#new'
+
   get '/video_games', to: 'video_games#index'
   get '/video_games/:id', to: 'video_games#show'
+  get '/video_games/:id/edit', to: 'video_games#edit'
 end
