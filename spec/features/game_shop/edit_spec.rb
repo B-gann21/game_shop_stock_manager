@@ -33,11 +33,12 @@ RSpec.describe "GameShop#edit" do
 
       fill_in :name, with: "Fred's Game Shop"
       fill_in :does_repairs, with: "true"
+      fill_in :stock_limit, with: 9
       click_button "Update Game Shop"
-
       expect(current_path).to eq("/game_shops/#{@shop1.id}")
       expect(page).to have_content("Fred's Game Shop")
       expect(page).to have_content("Does repairs: true")
+      expect(page).to have_content("Stock limit: 9")
     end
   end
 end
