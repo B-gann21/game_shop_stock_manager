@@ -1,8 +1,3 @@
-<a href="/video_games/">Video Game Index</a>
-<a href="/game_shops/">Game Shop Index</a>
-<a href="/game_shops/<%= @shop.id %>/video_games">
-  Games sold by <%= @shop.name %>
-</a>
 <h1 class="game-header"><%= @shop.name %></h1><br/>
 <section>
   <h2>ID: <%= @shop.id %></h2><br/>
@@ -13,3 +8,9 @@
   <p>Updated at: <%= @shop.updated_at %></p>
   <p>Games sold: <%= @shop.total_games_in_stock %> </p>
 </section>
+
+<a href="/video_games/">Video Game Index</a>
+<a href="/game_shops/">Game Shop Index</a>
+<a href="/game_shops/<%= @shop.id %>/video_games">
+  Games sold by <%= @shop.name %>
+</a>

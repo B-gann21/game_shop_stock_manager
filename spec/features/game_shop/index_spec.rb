@@ -68,11 +68,14 @@ RSpec.describe 'GameShops' do
       expect(page).to have_content(@shop3.name)
     end
 
-    it 'should display links at the top of the page' do
-      expect("Video Game Index").to appear_before("Game Shop Index")
-      expect("Video Game Index").to appear_before("All Game Shops")
+    it 'should display links at the bottom of the page' do
+      expect("Game Shop Index").to_not appear_before(@shop1.name)
+      expect("Game Shop Index").to_not appear_before(@shop2.name)
+      expect("Game Shop Index").to_not appear_before(@shop3.name)
 
-      expect("Game Shop Index").to appear_before("All Game Shops")
+      expect("Video Game Index").to_not appear_before(@shop1.name)
+      expect("Video Game Index").to_not appear_before(@shop2.name)
+      expect("Video Game Index").to_not appear_before(@shop3.name)
     end
   end
 
