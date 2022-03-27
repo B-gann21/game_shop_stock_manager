@@ -20,7 +20,7 @@ RSpec.describe "ShopGames#new" do
   # Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
   # a new child object/row is created for that parent,
   # and I am redirected to the Parent Childs Index page where I can see the new child listed
-  context 'funcntionality of ShopGames#new link' do
+  context 'functionality of ShopGames#new link' do
     it 'ShopGames#index page should have a link to create a new video game' do
       expect(page).to have_link("Add to stock")
     end
