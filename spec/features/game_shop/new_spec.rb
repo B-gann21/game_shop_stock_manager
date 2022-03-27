@@ -22,7 +22,7 @@ RSpec.describe 'GameShop#new' do
   # a new parent record is created,
   # and I am redirected to the Parent Index page where I see the new Parent displayed.
 
-  context 'testing the New Game Shop link' do
+  context 'New Game Shop link functionality' do
     it 'should have a link called New Game Shop' do
       expect(page).to have_link("New Game Shop")
     end
