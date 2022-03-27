@@ -20,7 +20,7 @@ RSpec.describe 'GameShops' do
       expect(page).to have_content("Stock limit: #{@shop1.stock_limit}")
       expect(page).to have_content("Created at: #{@shop1.created_at}")
       expect(page).to have_content("Updated at: #{@shop1.updated_at}")
-      expect(page).to have_content("Games sold: 2")
+      expect(page).to have_content("Games in stock: 2")
 
       expect(page).to_not have_content("ID: #{@shop2.id}")
       expect(page).to_not have_content(@shop2.name)

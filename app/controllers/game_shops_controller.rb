@@ -15,6 +15,17 @@ class GameShopsController < ApplicationController
     redirect_to '/game_shops'
   end
 
+  def edit
+    @game_shop = GameShop.find(params[:id])
+  end
+
+  def update
+    @game_shop = GameShop.find(params[:id])
+    @game_shop.update(game_shop_params)
+
+    redirect_to "/game_shops/#{@game_shop.id}"
+  end
+
 private
   def game_shop_params
     params.permit :name, :does_repairs, :stock_limit
