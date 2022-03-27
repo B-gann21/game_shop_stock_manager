@@ -33,4 +33,19 @@ RSpec.describe 'GameShop#new' do
       expect(current_path).to eq('/game_shops/new')
     end
   end
+
+  context 'creating a Game Shop' do
+    it 'after submitting the form, you see your new Game Shop' do
+      click_link("New Game Shop")
+
+      fill_in('Name', with: 'The Spot')
+      fill_in('Does_repairs', with: 'true')
+      fill_in('Stock_limit', with: '7')
+
+      click_button "Create Game Shop"
+
+      expect(current_path).to eq('/game_shops')
+      expect(page).to have_content('The Spot')
+    end
+  end
 end
