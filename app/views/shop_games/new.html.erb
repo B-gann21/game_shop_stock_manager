@@ -6,6 +6,6 @@
   <%= form.label :price %>
   <%= form.text_field :price %>
   <%= form.label :multiplayer %>
-  <%= form.text_field :multiplayer %>
+  <%= form.check_box :multiplayer %>
   <%= form.submit "Add to #{@game_shop.name} stock" %>
 <% end %>

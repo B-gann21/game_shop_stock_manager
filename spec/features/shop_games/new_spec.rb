@@ -10,7 +10,7 @@ RSpec.describe "ShopGames#new" do
 
     visit "/game_shops/#{@shop1.id}/video_games"
   end
-  
+
   context 'functionality of ShopGames#new link' do
     it 'ShopGames#index page should have a link to create a new video game' do
       expect(page).to have_link("Add to stock")
@@ -30,7 +30,7 @@ RSpec.describe "ShopGames#new" do
       fill_in :name, with: "Monster Hunter: Rise"
       fill_in :rating, with: "T"
       fill_in :price, with: "60"
-      fill_in :multiplayer, with: "true"
+      check :multiplayer
       click_button "Add to #{@shop1.name} stock"
 
       expect(current_path).to eq("/game_shops/#{@shop1.id}/video_games")
