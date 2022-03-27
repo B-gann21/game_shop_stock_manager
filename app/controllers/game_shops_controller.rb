@@ -6,4 +6,7 @@ class GameShopsController < ApplicationController
   def show
     @shop = GameShop.find(params[:id])
   end
+
+  def new
+  end
 end
