@@ -27,8 +27,24 @@ RSpec.describe 'VideoGames#edit' do
 
     it 'clicking Edit Game takes you to edit page' do
       click_link 'Edit DOOM 2016'
-      
+
       expect(current_path).to eq("/video_games/#{@game1.id}/edit")
+    end
+  end
+
+  context 'updating a Video Game' do
+    it 'submitting the form will change the attributes' do
+      click_link 'Edit DOOM 2016'
+
+      fill_in :name, with: "The Legend of Zelda"
+      fill_in :rating, with: "T"
+      fill_in :price, with: 60
+      uncheck :multiplayer
+
+      click_button "Update Game"
+
+      expect(current_path).to eq("/video_games/#{@game1.id}")
+      expect(page).to have_content("The Legend of Zelda")
     end
   end
 end
