@@ -7,11 +7,11 @@
   <p>Created at: <%= @shop.created_at %></p>
   <p>Updated at: <%= @shop.updated_at %></p>
   <p>Games in stock: <%= @shop.total_games_in_stock %> </p>
-  <%= link_to "Edit #{@shop.name}", "/game_shops/#{@shop.id}/edit" %>
+  <%= link_to "Edit #{@shop.name}", "/game_shops/#{@shop.id}/edit" %><br>
   <a href="/game_shops/<%= @shop.id %>/video_games">
     Games sold by <%= @shop.name %>
   </a>
 </section>
 
-<a href="/video_games/">Video Game Index</a>
+<a href="/video_games/">Video Game Index</a><br>
 <a href="/game_shops/">Game Shop Index</a>
