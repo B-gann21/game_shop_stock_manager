@@ -23,7 +23,7 @@ RSpec.describe "GameShop#edit" do
     it 'clicking the link should bring you to the edit page' do
       click_link "Edit Fred's Games"
 
-      expect(current_path).to eq("/game_shops/#{@game1.id}/edit")
+      expect(current_path).to eq("/game_shops/#{@shop1.id}/edit")
     end
   end
 end

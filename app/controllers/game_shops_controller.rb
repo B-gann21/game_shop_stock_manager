@@ -15,6 +15,9 @@ class GameShopsController < ApplicationController
     redirect_to '/game_shops'
   end
 
+  def edit
+  end
+
 private
   def game_shop_params
     params.permit :name, :does_repairs, :stock_limit

@@ -6,7 +6,8 @@
   <p>Does repairs: <%= @shop.does_repairs %></p>
   <p>Created at: <%= @shop.created_at %></p>
   <p>Updated at: <%= @shop.updated_at %></p>
-  <p>Games sold: <%= @shop.total_games_in_stock %> </p>
+  <p>Games in stock: <%= @shop.total_games_in_stock %> </p>
+  <%= link_to "Edit #{@shop.name}", "/game_shops/#{@shop.id}/edit" %>
 </section>
 
 <a href="/video_games/">Video Game Index</a>
