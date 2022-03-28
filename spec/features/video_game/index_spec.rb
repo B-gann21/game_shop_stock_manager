@@ -123,7 +123,7 @@ RSpec.describe 'VideoGames' do
 
     it 'Elden Ring should have an update link nearby' do
       within "#video-game-#{@game3.id}" do
-        click_link "Edit FIFA 2020"
+        click_link "Edit Elden Ring"
 
         expect(current_path).to eq("/video_games/#{@game3.id}/edit")
       end
