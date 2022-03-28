@@ -104,4 +104,44 @@ RSpec.describe 'GameShops' do
       expect(current_path).to eq("/game_shops/#{@shop3.id}")
     end
   end
+
+  context 'update links' do
+    it "each shop should have an update link near it's name" do
+      within "#game-shop-#{@shop1.id}" do
+        click_link "Edit Fred's Games"
+
+        expect(current_path).to eq("/game_shops/#{@shop1.id}/edit")
+
+        fill_in :name, with: "Fred's Video Games"
+        click_button "Update Fred's Games"
+
+        expect(page).to have_content("Fred's Video Games")
+        expect(page).to_not have_content("Fred's Games")
+      end
+
+      within "#game-shop-#{@shop2.id}" do
+        click_link "Edit Gameville"
+
+        expect(current_path).to eq("/game_shops/#{@shop2.id}/edit")
+
+        fill_in :name, with: "Game Ville"
+        click_button "Update Gameville"
+
+        expect(page).to have_content("Game Ville")
+        expect(page).to_not have_content("Gameville")
+      end
+
+      within "#game-shop-#{@shop3.id}" do
+        click_link "Edit GoodGames"
+
+        expect(current_path).to eq("/game_shops/#{@shop3.id}/edit")
+
+        fill_in :name, with: "Very Good Games"
+        click_button "Update GoodGames"
+
+        expect(page).to have_content("Very Good Games")
+        expect(page).to_not have_content("GoodGames")
+      end
+    end
+  end
 end
