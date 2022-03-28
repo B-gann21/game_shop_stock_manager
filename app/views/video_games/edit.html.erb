@@ -1,0 +1,11 @@
+<%= form_with url: "/video_games/#{@video_game.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :rating %>
+  <%= form.text_field :rating %>
+  <%= form.label :price %>
+  <%= form.text_field :price %>
+  <%= form.label :multiplayer %>
+  <%= form.check_box :multiplayer %>
+  <%= form.submit "Update Game" %>
+<% end %>
