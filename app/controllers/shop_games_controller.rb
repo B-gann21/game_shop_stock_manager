@@ -1,7 +1,11 @@
 class ShopGamesController < ApplicationController
   def index
     @shop = GameShop.find(params[:id])
-    @video_games = @shop.video_games
+    if params[:order] == 'alpha'
+      @video_games = @shop.alphabetized_video_games
+    else
+      @video_games = @shop.video_games
+    end
   end
 
   def new
