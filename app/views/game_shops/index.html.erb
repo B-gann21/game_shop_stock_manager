@@ -6,6 +6,7 @@
       <a href="/game_shops/<%= shop.id %>"><%= shop.name %></a>
     </p>
     <p>Created: <%= shop.created_at %></p>
+    <%= link_to "Edit #{shop.name}", "/game_shops/#{shop.id}/edit" %><br>
   </section><br/>
 <% end %>
 
