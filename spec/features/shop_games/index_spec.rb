@@ -43,6 +43,24 @@ RSpec.describe 'ShopGames' do
     end
   end
 
+  context 'buttons' do
+  # As a visitor
+  # When I visit the Parent's children Index Page
+  # Then I see a link to sort children in alphabetical order
+  # When I click on the link
+  # I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+    before do
+      @game4 = @shop1.video_games.create!(name: "Elephant Simulator", rating: "M 17+", price: 100, multiplayer: true)
+    end
+
+    it 'should have a button to alphabetize the games' do
+      click_button "Sort Alphabetically"
+
+      expect("DOOM 2016").to appear_before("Elephant Simulator")
+      expect("Elephant Simulator").to appear_before("FIFA 2020")
+    end
+  end
+
   context 'index links' do
     it 'displays a link to the VideoGame index' do
       expect(page).to have_link('Video Game Index')
