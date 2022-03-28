@@ -49,7 +49,7 @@ RSpec.describe 'ShopGames' do
 
       click_link('Video Game Index')
 
-      expect(page).to have_content(@game1.name)
+      expect(page).to_not have_content(@game1.name)
       expect(page).to have_content(@game2.name)
       expect(page).to have_content(@game3.name)
     end

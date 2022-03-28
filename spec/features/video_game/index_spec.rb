@@ -13,8 +13,8 @@ RSpec.describe 'VideoGames' do
   end
 
   context '#index' do
-    it 'displays all VideoGame names' do
-      expect(page).to have_content(@game1.name)
+    it 'displays only VideoGames that have multiplayer: true' do
+      expect(page).to_not have_content(@game1.name)
 
       expect(page).to have_content(@game2.name)
 
@@ -22,16 +22,6 @@ RSpec.describe 'VideoGames' do
     end
 
     it 'displays attributes next to their VideoGame' do
-      within "#video-game-#{@game1.id}" do
-        expect(page).to have_content(@game1.name)
-        expect(page).to have_content(@game1.id)
-        expect(page).to have_content(@game1.rating)
-        expect(page).to have_content(@game1.price)
-        expect(page).to have_content(@game1.multiplayer)
-        expect(page).to have_content(@game1.created_at)
-        expect(page).to have_content(@game1.updated_at)
-      end
-
       within "#video-game-#{@game2.id}" do
         expect(page).to have_content(@game2.name)
         expect(page).to have_content(@game2.id)
@@ -60,7 +50,7 @@ RSpec.describe 'VideoGames' do
 
       click_link('Video Game Index')
 
-      expect(page).to have_content(@game1.name)
+      expect(page).to_not have_content(@game1.name)
       expect(page).to have_content(@game2.name)
       expect(page).to have_content(@game3.name)
     end
@@ -77,12 +67,10 @@ RSpec.describe 'VideoGames' do
 
     it 'should display links at the bottom of the page' do
       expect("Video Game Index").to_not appear_before("All Video Games")
-      expect("Video Game Index").to_not appear_before(@game1.name)
       expect("Video Game Index").to_not appear_before(@game2.name)
       expect("Video Game Index").to_not appear_before(@game3.name)
 
       expect("Game Shop Index").to_not appear_before("All Video Games")
-      expect("Game Shop Index").to_not appear_before(@game1.name)
       expect("Game Shop Index").to_not appear_before(@game2.name)
       expect("Game Shop Index").to_not appear_before(@game3.name)
     end
@@ -90,15 +78,8 @@ RSpec.describe 'VideoGames' do
 
   context "show links" do
     it "has each game's name as a link" do
-      expect(page).to have_link("DOOM 2016")
       expect(page).to have_link("FIFA 2020")
       expect(page).to have_link("Elden Ring")
-    end
-
-    it "clicking on DOOM 2016 brings you to it's show page" do
-      click_link("DOOM 2016")
-
-      expect(current_path).to eq("/video_games/#{@game1.id}")
     end
 
     it "clicking on FIFA 2020 brings you to it's show page" do
