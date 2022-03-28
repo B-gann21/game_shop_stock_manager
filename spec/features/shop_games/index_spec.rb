@@ -43,6 +43,21 @@ RSpec.describe 'ShopGames' do
     end
   end
 
+  context 'buttons' do
+    before do
+      @game4 = @shop1.video_games.create!(name: "Elephant Simulator", rating: "M 17+", price: 100, multiplayer: true)
+    end
+
+    it 'should have a button to alphabetize the games' do
+      click_link "Sort Alphabetically"
+
+      expect(current_path).to eq("/game_shops/#{@shop1.id}/video_games")
+
+      expect("DOOM 2016").to appear_before("Elephant Simulator")
+      expect("Elephant Simulator").to appear_before("FIFA 2020")
+    end
+  end
+
   context 'index links' do
     it 'displays a link to the VideoGame index' do
       expect(page).to have_link('Video Game Index')

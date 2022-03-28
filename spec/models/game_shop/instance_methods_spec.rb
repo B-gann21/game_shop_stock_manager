@@ -22,5 +22,15 @@ RSpec.describe GameShop do
         expect(GameShop.order_by_created_at).to eq([@shop2, @shop1])
       end
     end
+
+    context '#alphabetized_video_games' do
+      before do
+        @game4 = @shop1.video_games.create(name: "Elephant Simulator", rating: "M 17+", price: 60, multiplayer: true)
+      end
+
+      it 'sorts games by their names' do
+        expect(@shop1.alphabetized_video_games).to eq([@game1, @game4, @game2])
+      end
+    end
   end
 end

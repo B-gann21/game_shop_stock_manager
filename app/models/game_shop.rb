@@ -3,6 +3,10 @@ class GameShop < ApplicationRecord
   validates_presence_of :name, :stock_limit
   validates_inclusion_of :does_repairs, in: [true, false]
 
+  def alphabetized_video_games
+    self.video_games.sort_by { |game| game.name }
+  end
+
   def total_games_in_stock
     self.video_games.count
   end
