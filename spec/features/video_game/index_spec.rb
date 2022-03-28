@@ -13,8 +13,8 @@ RSpec.describe 'VideoGames' do
   end
 
   context '#index' do
-    it 'displays all VideoGame names' do
-      expect(page).to have_content(@game1.name)
+    it 'displays only VideoGames that have multiplayer: true' do
+      expect(page).to_not have_content(@game1.name)
 
       expect(page).to have_content(@game2.name)
 
@@ -22,16 +22,6 @@ RSpec.describe 'VideoGames' do
     end
 
     it 'displays attributes next to their VideoGame' do
-      within "#video-game-#{@game1.id}" do
-        expect(page).to have_content(@game1.name)
-        expect(page).to have_content(@game1.id)
-        expect(page).to have_content(@game1.rating)
-        expect(page).to have_content(@game1.price)
-        expect(page).to have_content(@game1.multiplayer)
-        expect(page).to have_content(@game1.created_at)
-        expect(page).to have_content(@game1.updated_at)
-      end
-
       within "#video-game-#{@game2.id}" do
         expect(page).to have_content(@game2.name)
         expect(page).to have_content(@game2.id)
