@@ -56,6 +56,7 @@ RSpec.describe 'ShopGames' do
     it 'should have a button to alphabetize the games' do
       click_button "Sort Alphabetically"
 
+      expect(current_path).to eq("/game_shops/#{@shop1.id}/video_games")
       expect("DOOM 2016").to appear_before("Elephant Simulator")
       expect("Elephant Simulator").to appear_before("FIFA 2020")
     end
