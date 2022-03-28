@@ -1,6 +1,6 @@
 class VideoGamesController < ApplicationController
   def index
-    @video_games = VideoGame.all
+    @video_games = VideoGame.multiplayer_only
   end
 
   def show
