@@ -66,8 +66,8 @@ RSpec.describe 'ShopGames' do
       click_button "Filter"
 
       expect(current_path).to eq("/game_shops/#{@shop1.id}/video_games")
-      expect(page).to_not have_content("DOOM 2016")
-      expect(page).to have_content("FIFA 2020")
+      expect(page).to have_content("DOOM 2016")
+      expect(page).to_not have_content("FIFA 2020")
       expect(page).to have_content("Elephant Simulator")
     end
   end

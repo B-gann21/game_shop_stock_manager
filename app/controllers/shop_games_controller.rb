@@ -3,6 +3,8 @@ class ShopGamesController < ApplicationController
     @shop = GameShop.find(params[:id])
     if params[:order] == 'alpha'
       @video_games = @shop.alphabetized_video_games
+    elsif params[:quantity]
+      @video_games = @shop.games_over_price(params[:quantity])
     else
       @video_games = @shop.video_games
     end
