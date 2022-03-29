@@ -185,25 +185,25 @@ RSpec.describe 'GameShops' do
       end
     end
 
-    it 'delete GameVille' do
+    it 'delete Gameville' do
       within "#game-shop-#{@shop2.id}" do
-        expect(page).to have_content("GameVille")
+        expect(page).to have_content("Gameville")
 
-        click_link "Delete Fred's Games"
+        click_link "Delete Gameville"
 
         expect(current_path).to eq("/game_shops")
-        expect(page).to_not have_content("GameVille")
+        expect(page).to_not have_content("Gameville")
       end
     end
 
-    it 'delete GameVille' do
+    it 'delete GoodGames' do
       within "#game-shop-#{@shop3.id}" do
-        expect(page).to have_content("Goodgames")
+        expect(page).to have_content("GoodGames")
 
-        click_link "Delete Goodgames"
+        click_link "Delete GoodGames"
 
         expect(current_path).to eq("/game_shops")
-        expect(page).to_not have_content("Goodgames")
+        expect(page).to_not have_content("GoodGames")
       end
     end
   end

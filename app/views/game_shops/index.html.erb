@@ -7,6 +7,7 @@
     </p>
     <p>Created: <%= shop.created_at %></p>
     <%= link_to "Edit #{shop.name}", "/game_shops/#{shop.id}/edit" %><br>
+    <%= link_to "Delete #{shop.name}", "/game_shops/#{shop.id}", method: :delete %>
   </section><br/>
 <% end %>
 
