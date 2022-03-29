@@ -4,7 +4,7 @@ class GameShop < ApplicationRecord
   validates_inclusion_of :does_repairs, in: [true, false]
 
   def games_over_price(price)
-    video_games.where("price > 55")
+    video_games.where("price > #{price}")
   end
 
   def alphabetized_video_games
