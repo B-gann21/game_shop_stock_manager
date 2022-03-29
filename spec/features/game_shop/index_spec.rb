@@ -105,8 +105,8 @@ RSpec.describe 'GameShops' do
     end
   end
 
-  context 'update links' do
-    it "Fred's games should have an update link near it's name" do
+  context "each game shop should have an update link near it's name" do
+    it "update Fred's games" do
       within "#game-shop-#{@shop1.id}" do
         click_link "Edit Fred's Games"
 
@@ -128,7 +128,7 @@ RSpec.describe 'GameShops' do
       expect(page).to_not have_content("Stock limit: 3")
     end
 
-    it "GameVille should have an update link near it's name" do
+    it "update GameVille" do
       within "#game-shop-#{@shop2.id}" do
         click_link "Edit Gameville"
 
@@ -150,7 +150,7 @@ RSpec.describe 'GameShops' do
       expect(page).to_not have_content("Stock limit: 5")
     end
 
-    it "GoodGames should have an update link near it's name" do
+    it "update GoodGames" do
       within "#game-shop-#{@shop3.id}" do
         click_link "Edit GoodGames"
 
@@ -170,6 +170,50 @@ RSpec.describe 'GameShops' do
       expect(page).to_not have_content("GoodGames")
       expect(page).to_not have_content("Does repairs: false")
       expect(page).to_not have_content("Stock limit: 5")
+    end
+  end
+
+  context 'each game shop should have a delete link' do
+    it "delete Fred's Games" do
+      expect(page).to have_content("Fred's Games")
+
+      within "#game-shop-#{@shop1.id}" do
+        click_link "Delete Fred's Games"
+      end
+
+      expect(current_path).to eq('/game_shops')
+      expect(page).to_not have_content("Fred's Games")
+    end
+
+    it 'delete Gameville' do
+      expect(page).to have_content("Gameville")
+
+      within "#game-shop-#{@shop2.id}" do
+        click_link "Delete Gameville"
+      end
+
+      expect(current_path).to eq("/game_shops")
+      expect(page).to_not have_content("Gameville")
+    end
+
+    it 'delete GoodGames' do
+      expect(page).to have_content("GoodGames")
+
+      within "#game-shop-#{@shop3.id}" do
+        click_link "Delete GoodGames"
+      end
+
+      expect(current_path).to eq("/game_shops")
+      expect(page).to_not have_content("GoodGames")
+    end
+
+    it 'all stocked video games are deleted after deleting a game shop' do
+      click_link "Delete Fred's Games"
+
+      visit "/video_games"
+
+      expect(page).to_not have_content(@game1.name)
+      expect(page).to_not have_content(@game2.name)
     end
   end
 end

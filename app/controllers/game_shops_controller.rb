@@ -26,6 +26,13 @@ class GameShopsController < ApplicationController
     redirect_to "/game_shops/#{@game_shop.id}"
   end
 
+  def destroy
+    game_shop = GameShop.find(params[:id])
+    game_shop.video_games.destroy_all
+    game_shop.destroy
+    redirect_to '/game_shops'
+  end
+
 private
   def game_shop_params
     params.permit :name, :does_repairs, :stock_limit

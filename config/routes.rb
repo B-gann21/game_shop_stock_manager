@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/game_shops', to: 'game_shops#create'
   get '/game_shops/:id', to: 'game_shops#show'
   patch '/game_shops/:id', to: 'game_shops#update'
+  delete '/game_shops/:id', to: 'game_shops#destroy'
   get 'game_shops/:id/edit', to: 'game_shops#edit'
 
   get '/game_shops/:id/video_games', to: 'shop_games#index'

@@ -8,6 +8,7 @@
   <p>Updated at: <%= @shop.updated_at %></p>
   <p>Games in stock: <%= @shop.total_games_in_stock %> </p>
   <%= link_to "Edit #{@shop.name}", "/game_shops/#{@shop.id}/edit" %><br>
+  <%= link_to "Delete #{@shop.name}", "/game_shops/#{@shop.id}", method: :delete %>
   <a href="/game_shops/<%= @shop.id %>/video_games">
     Games sold by <%= @shop.name %>
   </a>
