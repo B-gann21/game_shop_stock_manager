@@ -12,7 +12,8 @@
     <p>Multiplayer: <%= game.multiplayer %></p>
     <p>Created at: <%= game.created_at %></p>
     <p>Updated at: <%= game.updated_at %></p>
-    <%= link_to "Edit #{game.name}", "/video_games/#{game.id}/edit" %>
+    <%= link_to "Edit #{game.name}", "/video_games/#{game.id}/edit" %><br>
+    <%= link_to "Delete #{game.name}", "/video_games/#{game.id}", method: :delete %>
   </section><br/>
 <% end %>
 

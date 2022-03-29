@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'GameShop#new' do
   before :each do
+    VideoGame.destroy_all
+    GameShop.destroy_all
+
     @shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
     @shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)
     @shop3 = GameShop.create!(name: "GoodGames", does_repairs: false, stock_limit: 5)

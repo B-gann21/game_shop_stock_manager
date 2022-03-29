@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "VideoGame instance methods" do
   before :each do
+    VideoGame.destroy_all
+    GameShop.destroy_all
+
     @shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
 
     @game1 = @shop1.video_games.create!(name: "DOOM 2016", rating: "M", price: 70, multiplayer: false)
