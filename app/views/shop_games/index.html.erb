@@ -1,6 +1,6 @@
 <%= link_to "Sort Alphabetically", "/game_shops/#{params[:id]}/video_games?order=alpha", method: :get %><br>
 <%= form_with url: "/game_shops/#{params[:id]}/video_games?quantity=#{params[:quantity]}", method: :get, local: true do |form| %>
-  <%= form.label :quantity %>
+  <%= form.label :quantity, "Price"%>
   <%= form.number_field :quantity %>
   <%= form.submit "Filter" %>
 <% end %><br>
