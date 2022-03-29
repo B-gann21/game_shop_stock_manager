@@ -35,4 +35,33 @@ RSpec.describe 'VideoGames#delete' do
       expect(page).to_not have_content("DOOM 2016")
     end
   end
+
+  context "VideoGames#index page shouls have a delete link" do
+    it 'deleting DOOM 2016' do
+      expect(page).to have_content("DOOM 2016")
+
+      click_link "Delete DOOM 2016"
+
+      expect(current_path).to eq("/video_games")
+      expect(page).to_not have_content("DOOM 2016")
+    end
+
+    it 'deleting FIFA 2020' do
+      expect(page).to have_content("FIFA 2020")
+
+      click_link "Delete FIFA 2020"
+
+      expect(current_path).to eq("/video_games")
+      expect(page).to_not have_content("FIFA 2020")
+    end
+
+    it 'deleting Elden Ring' do
+      expect(page).to have_content("Elden Ring")
+
+      click_link "Delete Elden Ring"
+
+      expect(current_path).to eq("/video_games")
+      expect(page).to_not have_content("Elden Ring")
+    end
+  end
 end
