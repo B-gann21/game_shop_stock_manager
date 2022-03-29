@@ -62,10 +62,10 @@ RSpec.describe 'VideoGames#delete' do
     it 'deleting Elden Ring' do
       expect(page).to have_content("Elden Ring")
 
-      within "#video-game#{@game3.id}" do
+      within "#video-game-#{@game3.id}" do
         click_link "Delete Elden Ring"
       end
-      
+
       expect(current_path).to eq("/video_games")
       expect(page).to_not have_content("Elden Ring")
     end
