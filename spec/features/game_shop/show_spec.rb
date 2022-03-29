@@ -79,4 +79,15 @@ RSpec.describe 'GameShops' do
       expect(page).to have_content("Fred's Video Games")
     end
   end
+
+  context 'delete link' do
+    it 'should have a funtioning delete link' do
+      expect(page).to have_content("Fred's Games")
+
+      click_link "Delete Fred's Games"
+
+      expect(current_path).to eq("/game_shops")
+      expect(page).to_not have_content("Fred's Games")
+    end
+  end
 end
