@@ -1,4 +1,9 @@
-<%= link_to "Sort Alphabetically", "/game_shops/#{params[:id]}/video_games?order=alpha", method: :get %>
+<%= link_to "Sort Alphabetically", "/game_shops/#{params[:id]}/video_games?order=alpha", method: :get %><br>
+<%= form_with url: "/game_shops/#{params[:id]}/video_games?quantity=#{params[:quantity]}", method: :get, local: true do |form| %>
+  <%= form.label :quantity %>
+  <%= form.number_field :quantity %>
+  <%= form.submit "Filter" %>
+<% end %><br>
 <h1 class="game-header">Games from shop # <%= params[:id] %></h1><br/>
 
 <% @video_games.each do |game| %>

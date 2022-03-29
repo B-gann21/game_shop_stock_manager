@@ -47,7 +47,7 @@ RSpec.describe 'ShopGames' do
     end
   end
 
-  context 'buttons' do
+  context 'sorting the games' do
     it 'should have a button to alphabetize the games' do
       click_link "Sort Alphabetically"
 
@@ -55,6 +55,20 @@ RSpec.describe 'ShopGames' do
 
       expect("DOOM 2016").to appear_before("Elephant Simulator")
       expect("Elephant Simulator").to appear_before("FIFA 2020")
+    end
+
+    it 'should have a form to only show games over a given price' do
+      expect(page).to have_content("DOOM 2016")
+      expect(page).to have_content("FIFA 2020")
+      expect(page).to have_content("Elephant Simulator")
+
+      fill_in :quantity, with: 55
+      click_button "Filter"
+
+      expect(current_path).to eq("/game_shops/#{@shop1.id}/video_games")
+      expect(page).to have_content("DOOM 2016")
+      expect(page).to_not have_content("FIFA 2020")
+      expect(page).to have_content("Elephant Simulator")
     end
   end
 

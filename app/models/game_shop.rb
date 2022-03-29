@@ -3,6 +3,10 @@ class GameShop < ApplicationRecord
   validates_presence_of :name, :stock_limit
   validates_inclusion_of :does_repairs, in: [true, false]
 
+  def games_over_price(price)
+    video_games.where("price > 55")
+  end
+
   def alphabetized_video_games
     self.video_games.sort_by { |game| game.name }
   end
