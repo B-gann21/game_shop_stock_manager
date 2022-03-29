@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'GameShops' do
   before :each do
+    VideoGame.destroy_all
+    GameShop.destroy_all
+
     @shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
     @shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)
     @game1 = @shop1.video_games.create!(name: "DOOM 2016", rating: "M", price: 70, multiplayer: false)
@@ -62,32 +65,6 @@ RSpec.describe 'GameShops' do
       expect("Video Game Index").to_not appear_before(@shop1.name)
       expect("Games sold by #{@shop1.name}").to_not appear_before(@shop1.name)
       expect("Game Shop Index").to_not appear_before(@shop1.name)
-    end
-  end
-
-  context 'edit link' do
-    it 'should have a link to edit the game shop' do
-      click_link "Edit Fred's Games"
-
-      fill_in :name, with: "Fred's Video Games"
-      check :does_repairs
-      fill_in :stock_limit, with: 10
-      click_button "Update Game Shop"
-
-      expect(current_path).to eq("/game_shops/#{@shop1.id}")
-      expect(page).to_not have_content("Fred's Games")
-      expect(page).to have_content("Fred's Video Games")
-    end
-  end
-
-  context 'delete link' do
-    it 'should have a funtioning delete link' do
-      expect(page).to have_content("Fred's Games")
-
-      click_link "Delete Fred's Games"
-
-      expect(current_path).to eq("/game_shops")
-      expect(page).to_not have_content("Fred's Games")
     end
   end
 end

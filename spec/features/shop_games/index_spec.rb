@@ -2,12 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'ShopGames' do
   before :each do
+    VideoGame.destroy_all
+    GameShop.destroy_all
+
     @shop1 = GameShop.create!(name: "Fred's Games", does_repairs: false, stock_limit: 3)
     @shop2 = GameShop.create!(name: "Gameville", does_repairs: false, stock_limit: 5)
     @game1 = @shop1.video_games.create!(name: "DOOM 2016", rating: "M", price: 70, multiplayer: false)
     @game2 = @shop1.video_games.create!(name: "FIFA 2020", rating: "E", price: 55, multiplayer: true)
     @game3 = @shop2.video_games.create!(name: "Elden Ring", rating: "M", price: 65, multiplayer: true)
-
+    @game4 = @shop1.video_games.create!(name: "Elephant Simulator", rating: "M 17+", price: 100, multiplayer: true)
+    
     visit "/game_shops/#{@shop1.id}/video_games"
   end
 
@@ -44,10 +48,6 @@ RSpec.describe 'ShopGames' do
   end
 
   context 'buttons' do
-    before do
-      @game4 = @shop1.video_games.create!(name: "Elephant Simulator", rating: "M 17+", price: 100, multiplayer: true)
-    end
-
     it 'should have a button to alphabetize the games' do
       click_link "Sort Alphabetically"
 
