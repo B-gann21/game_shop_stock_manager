@@ -64,4 +64,19 @@ RSpec.describe 'GameShops' do
       expect("Game Shop Index").to_not appear_before(@shop1.name)
     end
   end
+
+  context 'edit link' do
+    it 'should have a link to edit the game shop' do
+      click_link "Edit Fred's Games"
+
+      fill_in :name, with: "Fred's Video Games"
+      check :does_repairs
+      fill_in :stock_limit, with: 10
+      click_button "Update Game Shop"
+
+      expect(current_path).to eq("/game_shops/#{@shop1.id}")
+      expect(page).to_not have_content("Fred's Games")
+      expect(page).to have_content("Fred's Video Games")
+    end
+  end
 end
