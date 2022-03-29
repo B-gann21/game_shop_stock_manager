@@ -96,4 +96,59 @@ RSpec.describe 'VideoGames#edit' do
       expect(page).to_not have_content("Price: 65")
     end
   end
+
+  context 'Shop Games index page should have edit links' do
+    it 'DOOM 2016 should have an update link nearby' do
+      visit "/game_shops/#{@shop1.id}/video_games"
+
+      within "#video-game-#{@game1.id}" do
+        click_link "Edit DOOM 2016"
+
+        expect(current_path).to eq("/video_games/#{@game1.id}/edit")
+      end
+
+      fill_in :name, with: "DOOM Eternal"
+      fill_in :rating, with: "M"
+      fill_in :price, with: 50
+      check :multiplayer
+      click_button "Update Game"
+
+      expect(current_path).to eq("/video_games/#{@game1.id}")
+
+      expect(page).to have_content("DOOM Eternal")
+      expect(page).to have_content("Rating: M")
+      expect(page).to have_content("Price: 50")
+      expect(page).to have_content("Multiplayer: true")
+
+      expect(page).to_not have_content("DOOM 2016")
+      expect(page).to_not have_content("Price: 70")
+    end
+
+    it 'FIFA 2020 should have an update link nearby' do
+      visit "/game_shops/#{@shop1.id}/video_games"
+
+      within "#video-game-#{@game2.id}" do
+        click_link "Edit FIFA 2020"
+
+        expect(current_path).to eq("/video_games/#{@game2.id}/edit")
+      end
+
+      fill_in :name, with: "FIFA 2021"
+      fill_in :rating, with: "T"
+      fill_in :price, with: 60
+      check :multiplayer
+      click_button "Update Game"
+
+      expect(current_path).to eq("/video_games/#{@game2.id}")
+
+      expect(page).to have_content("FIFA 2021")
+      expect(page).to have_content("Rating: T")
+      expect(page).to have_content("Price: 60")
+      expect(page).to have_content("Multiplayer: true")
+
+      expect(page).to_not have_content("FIFA 2020")
+      expect(page).to_not have_content("Rating: E")
+      expect(page).to_not have_content("Price: 55")
+    end
+  end
 end
