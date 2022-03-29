@@ -8,11 +8,11 @@ class GameShop < ApplicationRecord
   end
 
   def alphabetized_video_games
-    self.video_games.sort_by { |game| game.name }
+    video_games.order(:name)
   end
 
   def total_games_in_stock
-    self.video_games.count
+    video_games.count
   end
 
   def self.order_by_created_at
