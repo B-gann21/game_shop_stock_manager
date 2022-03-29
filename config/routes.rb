@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/video_games', to: 'video_games#index'
   get '/video_games/:id', to: 'video_games#show'
   patch '/video_games/:id', to: 'video_games#update'
+  delete '/video_games/:id', to: 'video_games#destroy'
   get '/video_games/:id/edit', to: 'video_games#edit'
 end
