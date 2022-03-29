@@ -25,8 +25,8 @@ RSpec.describe 'VideoGames#edit' do
     end
   end
 
-  context 'updating a Video Game' do
-    it 'submitting the form will change the attributes' do
+  context 'updating a game from show page' do
+    it 'updating DOOM 2016' do
       click_link 'Edit DOOM 2016'
 
       fill_in :name, with: "The Legend of Zelda"
@@ -41,7 +41,7 @@ RSpec.describe 'VideoGames#edit' do
     end
   end
 
-  context 'updating from index page' do
+  context 'updating a game from index page' do
     it 'FIFA 2020 should have an update link nearby' do
       visit '/video_games'
 
@@ -97,7 +97,7 @@ RSpec.describe 'VideoGames#edit' do
     end
   end
 
-  context 'Shop Games index page should have edit links' do
+  context 'Updating a game from a ShopGames#index page' do
     it 'DOOM 2016 should have an update link nearby' do
       visit "/game_shops/#{@shop1.id}/video_games"
 
