@@ -105,8 +105,8 @@ RSpec.describe 'GameShops' do
     end
   end
 
-  context 'update links' do
-    it "Fred's games should have an update link near it's name" do
+  context "each game shop should have an update link near it's name" do
+    it "update Fred's games" do
       within "#game-shop-#{@shop1.id}" do
         click_link "Edit Fred's Games"
 
@@ -128,7 +128,7 @@ RSpec.describe 'GameShops' do
       expect(page).to_not have_content("Stock limit: 3")
     end
 
-    it "GameVille should have an update link near it's name" do
+    it "update GameVille" do
       within "#game-shop-#{@shop2.id}" do
         click_link "Edit Gameville"
 
@@ -150,7 +150,7 @@ RSpec.describe 'GameShops' do
       expect(page).to_not have_content("Stock limit: 5")
     end
 
-    it "GoodGames should have an update link near it's name" do
+    it "update GoodGames" do
       within "#game-shop-#{@shop3.id}" do
         click_link "Edit GoodGames"
 
@@ -170,6 +170,41 @@ RSpec.describe 'GameShops' do
       expect(page).to_not have_content("GoodGames")
       expect(page).to_not have_content("Does repairs: false")
       expect(page).to_not have_content("Stock limit: 5")
+    end
+  end
+
+  context 'each game shop should have a delete link' do
+    it "delete Fred's Games" do
+      within "#game-shop-#{@shop1.id}" do
+        expect(page).to have_content("Fred's Games")
+
+        click_link "Delete Fred's Games"
+
+        expect(current_path).to eq('/game_shops')
+        expect(page).to_not have_content("Fred's Games")
+      end
+    end
+
+    it 'delete GameVille' do
+      within "#game-shop-#{@shop2.id}" do
+        expect(page).to have_content("GameVille")
+
+        click_link "Delete Fred's Games"
+
+        expect(current_path).to eq("/game_shops")
+        expect(page).to_not have_content("GameVille")
+      end
+    end
+
+    it 'delete GameVille' do
+      within "#game-shop-#{@shop3.id}" do
+        expect(page).to have_content("Goodgames")
+
+        click_link "Delete Goodgames"
+
+        expect(current_path).to eq("/game_shops")
+        expect(page).to_not have_content("Goodgames")
+      end
     end
   end
 end
