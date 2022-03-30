@@ -1,9 +1,13 @@
-<%= link_to "Sort Alphabetically", "/game_shops/#{params[:id]}/video_games?order=alpha", method: :get %><br>
-<%= form_with url: "/game_shops/#{params[:id]}/video_games?quantity=#{params[:quantity]}", method: :get, local: true do |form| %>
-  <%= form.label :quantity, "Price"%>
-  <%= form.number_field :quantity %>
-  <%= form.submit "Filter" %>
-<% end %><br>
+<div>
+  <strong style="border: 1px dashed black">Data Filters</strong><br/>
+  <%= link_to "Sort Alphabetically", "/game_shops/#{params[:id]}/video_games?order=alpha", method: :get %>
+  <%= form_with url: "/game_shops/#{params[:id]}/video_games?quantity=#{params[:quantity]}", method: :get, local: true do |form| %>
+    <%= form.label :quantity, "Show games that cost over: "%>
+    <%= form.number_field :quantity, style: "width: 25%"%>
+    <%= form.submit "Filter" %>
+  <% end %><br/>
+</div><br/>
+
 <h1 class="game-header">Games from shop # <%= params[:id] %></h1><br/>
 
 <% @video_games.each do |game| %>
@@ -21,6 +25,8 @@
   </section><br/>
 <% end %>
 
-<a href="/video_games/">Video Game Index</a><br>
-<a href="/game_shops/">Game Shop Index</a><br>
-<%= link_to "Add to stock", "/game_shops/#{params[:id]}/video_games/new" %>
+<footer>
+  <a href="/video_games/">Video Game Index</a><br/>
+  <a href="/game_shops/">Game Shop Index</a><br/>
+  <%= link_to "Add to stock", "/game_shops/#{params[:id]}/video_games/new" %>
+</footer>

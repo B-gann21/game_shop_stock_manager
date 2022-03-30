@@ -1,11 +1,13 @@
-<%= form_with url: "/game_shops/#{@game_shop.id}/video_games", method: :post, local: true do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :rating %>
-  <%= form.text_field :rating %>
-  <%= form.label :price %>
-  <%= form.text_field :price %>
-  <%= form.label :multiplayer %>
-  <%= form.check_box :multiplayer %>
-  <%= form.submit "Add to #{@game_shop.name} stock" %>
-<% end %>
+<div>
+  <%= form_with url: "/game_shops/#{@game_shop.id}/video_games", method: :post, local: true do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %><br>
+    <%= form.label :rating %>
+    <%= form.text_field :rating, style: "width: 25%" %><br>
+    <%= form.label :price %>
+    <%= form.number_field :price, style: "width: 20%" %><br>
+    <%= form.label :multiplayer %>
+    <%= form.check_box :multiplayer %><br>
+    <%= form.submit "Add to #{@game_shop.name} stock" %>
+  <% end %>
+</div>
