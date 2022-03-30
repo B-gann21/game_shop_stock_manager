@@ -8,6 +8,14 @@ section {
   padding: 10px;
 }
 
+footer {
+  margin-left: 15%;
+  border: 2px solid black;
+  background-color: rgb(160, 160, 160);
+  text-align: center;
+  width: 15%;
+}
+
 .game-header {
   width: 50%;
   margin: auto;

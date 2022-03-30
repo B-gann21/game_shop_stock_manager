@@ -10,7 +10,8 @@
     <%= link_to "Delete #{shop.name}", "/game_shops/#{shop.id}", method: :delete %>
   </section><br/>
 <% end %>
-
-<a href="/video_games/">Video Game Index</a><br>
-<a href="/game_shops/">Game Shop Index</a><br>
-<%= link_to "New Game Shop", '/game_shops/new' %>
+<footer>
+  <a href="/video_games/">Video Game Index</a><br/>
+  <a href="/game_shops/">Game Shop Index</a><br/>
+  <%= link_to "New Game Shop", '/game_shops/new' %>
+</footer>
