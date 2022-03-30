@@ -1,6 +1,6 @@
 # Game Shop Stock Manager | Solo Project
 
-A basic Ruby-on-Rails web application to manage inventory across different video game shops. Includes basic CRUD (Create, Read, Update, Delete) functionality. 
+A Ruby-on-Rails web application to manage inventory across different video game shops. Includes basic CRUD (Create, Read, Update, Delete) functionality. 
 
 Uses Ruby version 2.7.4, Rails version 5.2.7, and PostgreSQL.
 
