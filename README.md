@@ -6,16 +6,17 @@ Uses Ruby version 2.7.4, Rails version 5.2.7, and PostgreSQL.
 
 [Database design table](https://dbdesigner.page.link/MXDMP3tZhFNrPUJJ9)
 
-## Getting started - Setting up Ruby 2.7.4 Rails 5.2.7 using Rbenv; Installing PostgreSQL using Homebrew
+## Getting started - Setting up Ruby 2.7.4 and Rails 5.2.7 using Rbenv; Installing PostgreSQL using Homebrew
 
 ###Requires a Mac computer
 
-1. Make sure you have Rbenv installed (directions can be found [here](https://github.com/rbenv/rbenv))
-2. In the terminal, run `rbenv install 2.7.4` to install the proper Ruby version
-3. run `gem install rails 5.2.7` to install the proper Rails version
-4. run `brew install postgresql` to install PSQL, and then `brew services start postgresql` to start the service.
-5. `cd` to the directory in which you intend to store the project
-6. run `rbenv local 2.7.4` to set the current directory's Ruby version to 2.7.4
+1. Make sure you have you have HomeBrew (directions for installation [here](https://brew.sh/))
+2. Make sure you have Rbenv (directions for installation [here](https://github.com/rbenv/rbenv))
+3. In the terminal, run `rbenv install 2.7.4` to install the proper Ruby version
+4. run `gem install rails 5.2.7` to install the proper Rails version
+5. run `brew install postgresql` to install PSQL, and then `brew services start postgresql` to start the service.
+6. `cd` to the directory in which you intend to store the project
+7. run `rbenv local 2.7.4` to set the current directory's Ruby version to 2.7.4
 
 ## Setting up the database, initializing the Rails server
 
