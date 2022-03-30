@@ -8,7 +8,7 @@ Uses Ruby version 2.7.4, Rails version 5.2.7, and PostgreSQL.
 
 ## Getting started - Setting up Ruby 2.7.4 and Rails 5.2.7 using Rbenv; Installing PostgreSQL using Homebrew
 
-###Requires a Mac computer
+### Requires a Mac computer
 
 1. Make sure you have HomeBrew (directions for installation [here](https://brew.sh/))
 2. Make sure you have Rbenv (directions for installation [here](https://github.com/rbenv/rbenv))
