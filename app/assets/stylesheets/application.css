@@ -1,7 +1,6 @@
 /* styling for GameShops */
 section {
   border: 2px dashed black;
-  margin: auto;
   background-color: rgb(160, 160, 160);
   width: 20%;
   text-align: center;
@@ -17,16 +16,10 @@ footer {
 }
 
 div {
-  float: left;
+  margin: left;
   border: 2px solid black;
   background-color: rgb(160, 160, 160);
   text-align: center;
   line-height: 25px;
   width: 15%;
-}
-
-.game-header {
-  width: 50%;
-  margin: auto;
-  text-align: center
 }
