@@ -1,9 +1,11 @@
-<%= form_with url: "/game_shops/#{@game_shop.id}", method: :patch, local: true do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %><br>
-  <%= form.label :does_repairs %>
-  <%= form.check_box :does_repairs %><br>
-  <%= form.label :stock_limit %>
-  <%= form.text_field :stock_limit %><br>
-  <%= form.submit "Update Game Shop" %>
-<% end %>
+<div>
+  <%= form_with url: "/game_shops/#{@game_shop.id}", method: :patch, local: true do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %><br>
+    <%= form.label :does_repairs %>
+    <%= form.check_box :does_repairs %><br>
+    <%= form.label :stock_limit %>
+    <%= form.number_field :stock_limit, style: "width: 20%" %><br>
+    <%= form.submit "Update Game Shop" %>
+  <% end %>
+</div>
