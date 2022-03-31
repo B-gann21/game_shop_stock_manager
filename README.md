@@ -22,8 +22,9 @@ Uses Ruby version 2.7.4, Rails version 5.2.7, and PostgreSQL.
 
 1. Start by cloning the repo with `git clone https://github.com/B-gann21/game_shop_stock_manager`
 2. run `rails db:migrate` to create the GameShops and VideoGames tables in the database
-3. **optional**: run `rails db:seed` if you wish to pre-load the `GameShop` and `VideoGame` objects that can be found in the seed file
-4. Finally, run `rails s` to start up the rails server. **note: leave your terminal open for the next steps!**
+3. run `rails g rspec:install` to bootstrap RSpec to the Rails app
+4. **optional**: run `rails db:seed` if you wish to pre-load the `GameShop` and `VideoGame` objects that can be found in the seed file
+5. Finally, run `rails s` to start up the rails server. **note: leave your terminal open for the next steps!**
 
 ## Interacting with the website
 
