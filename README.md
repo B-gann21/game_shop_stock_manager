@@ -30,15 +30,14 @@ Uses Ruby version 2.7.4, Rails version 5.2.7, and PostgreSQL.
 2. `bundle install` to install the proper Ruby gems
 3. `rails db:create` to create a `development` and `test` database on your machine
 4. `rails db:migrate` to create the GameShops and VideoGames tables in the database
-5. `rails g rspec:install` to bootstrap RSpec to the Rails app
-6. **optional**: use `rails db:seed` if you wish to pre-load the `GameShop` and `VideoGame` objects that can be found in the seed file
-7. `rails s` to start up the rails server. **note: leave your terminal open for the next steps!**
+5. **optional**: use `rails db:seed` if you wish to pre-load the `GameShop` and `VideoGame` objects that can be found in the seed file
+6. `rails s` to start up the rails server. **note: leave your terminal open for the next steps!**
 
 ### Interacting with the website
 
-9. Navigate to Google Chrome (or Safari - note that this app hasn't been tested on any other browsers)
-10. in the URL bar, type `localhost:3000/` to be brought to the welcome page. 
-11. Start clicking links and filling out forms to create your own GameShops and VideoGames! 
+7. Navigate to Google Chrome (or Safari - note that this app hasn't been tested on any other browsers)
+8. in the URL bar, type `localhost:3000/` to be brought to the welcome page. 
+9. Start clicking links and filling out forms to create your own GameShops and VideoGames! 
 
 ## Running the test suite - **make sure to use `bundle exec` before each of your RSpec commands**
 
