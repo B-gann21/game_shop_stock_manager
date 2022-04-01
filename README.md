@@ -4,9 +4,13 @@ A Ruby-on-Rails web application to manage inventory across different video game 
 
 Uses Ruby version 2.7.4, Rails version 5.2.7, and PostgreSQL.
 
+### This project has a Heroku app [here](http://game-shop-manager.herokuapp.com/) if you are not interested in running the code from your local machine
+
 [Database design table](https://dbdesigner.page.link/MXDMP3tZhFNrPUJJ9)
 
-## Getting started - Setting up Ruby 2.7.4 and Rails 5.2.7 using Rbenv; Installing PostgreSQL using Homebrew
+## How to get the app and test suites running on your machine
+
+### Setting up Ruby 2.7.4 and Rails 5.2.7 using Rbenv; Installing PostgreSQL using Homebrew
 
 ### Requires a Mac computer
 
@@ -18,18 +22,24 @@ Uses Ruby version 2.7.4, Rails version 5.2.7, and PostgreSQL.
 6. `cd` to the directory in which you intend to store the project
 7. run `rbenv local 2.7.4` to set the current directory's Ruby version to 2.7.4
 
-## Setting up the database, initializing the Rails server
+## Setting up the database, initializing the Rails server, interacting with the website
 
 1. Start by cloning the repo with `git clone https://github.com/B-gann21/game_shop_stock_manager`
-2. run `rails db:migrate` to create the GameShops and VideoGames tables in the database
-3. run `rails g rspec:install` to bootstrap RSpec to the Rails app
-4. **optional**: run `rails db:seed` if you wish to pre-load the `GameShop` and `VideoGame` objects that can be found in the seed file
-5. Finally, run `rails s` to start up the rails server. **note: leave your terminal open for the next steps!**
+2. run `bundle install` to install the proper Ruby gems
+3. run `rails db:migrate` to create the GameShops and VideoGames tables in the database
+4. run `rails g rspec:install` to bootstrap RSpec to the Rails app
+5. **optional**: run `rails db:seed` if you wish to pre-load the `GameShop` and `VideoGame` objects that can be found in the seed file
+6. run `rails s` to start up the rails server. **note: leave your terminal open for the next steps!**
+7. Navigate to Google Chrome (or Safari - note that this app hasn't been tested on any other browsers)
+8. in the URL bar, type `localhost:3000/` to be brought to the welcome page. 
+9. Start clicking links and filling out forms to create your own GameShops and VideoGames! 
 
-## Interacting with the website
+## Running the test suite - **make sure to use `bundle exec` before each of your RSpec commands**
 
-1. Navigate to Google Chrome (or Safari - note that this app hasn't been tested on any other browsers)
-2. in the URL bar, type `localhost:3000/` to be brought to the welcome page. 
-3. Start clicking links and filling out forms to create your own GameShops and VideoGames! 
+### This project uses RSpec - all tests are held inside of the `/spec` folder
 
+- You can run the full suite with `bundle exec rspec`
 
+- To run a specific spec folder or file, specify the path in your command: `bundle exec rspec spec/features/`, `bundle exec rspec spec/models/video_game`
+
+- To run a single test, specify the line where the `it` block starts: `bundle exec rspec spec/features/game_shops/index_spec.rb:50`
